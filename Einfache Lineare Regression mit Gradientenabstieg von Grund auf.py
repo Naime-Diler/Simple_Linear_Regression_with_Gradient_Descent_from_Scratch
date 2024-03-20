@@ -92,3 +92,23 @@ def train(Y, initial_b, initial_w, X, learning_rate, num_iters):
             # Ausgabe des Fortschritts alle 100 Iterationen
             print("iter={:d}    b={:.2f}    w={:.4f}    mse={:.4}".format(i, b, w, mse))
 
+
+# Beispielverwendung der Funktionen für die einfache lineare Regression
+
+# Einlesen der Daten aus der CSV-Datei "advertising.csv" mittels pandas
+df = pd.read_csv("datasets/advertising.csv")
+
+# Extrahieren der unabhängigen Variable "radio" und der abhängigen Variable "sales" aus dem DataFrame
+X = df["radio"]  # Unabhängige Variable
+Y = df["sales"]  # Abhängige Variable
+
+# Festlegen der Hyperparameter für das Training
+learning_rate = 0.001  # Lernrate für den Gradientenabstieg
+initial_b = 0.001  # Anfangswert für den Bias
+initial_w = 0.001  # Anfangswert für das Gewicht
+num_iters = 10000  # Anzahl der Iterationen für den Gradientenabstieg
+
+# Anwendung der Trainingsfunktion auf die Daten, um das Modell zu trainieren und die optimalen Parameter zu erhalten
+cost_history, b, w = train(Y, initial_b, initial_w, X, learning_rate, num_iters)
+
+
